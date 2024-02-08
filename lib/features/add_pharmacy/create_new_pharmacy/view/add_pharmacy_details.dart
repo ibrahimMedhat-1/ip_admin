@@ -38,6 +38,7 @@ class AddPharmacyDetails extends StatelessWidget {
                   TextFormField(
                     controller: cubit.phoneController,
                     decoration: const InputDecoration(label: Text('Phone')),
+                    keyboardType: TextInputType.phone,
                   ),
                   const SizedBox(height: 10),
                   ElevatedButton(
