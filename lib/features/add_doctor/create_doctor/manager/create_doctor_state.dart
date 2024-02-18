@@ -18,3 +18,5 @@ class RegisterDoctorSuccessfully extends CreateDoctorState {}
 class RegisterDoctorError extends CreateDoctorState {}
 
 class ClearAllTextFormFields extends CreateDoctorState {}
+
+class ChangeProfilePicture extends CreateDoctorState {}

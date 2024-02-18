@@ -9,6 +9,7 @@ class PharmacyModel {
   String? id;
   String? phoneNo;
   String? address;
+  String? creationDate;
   List<CategoryModel>? categories;
   List<ReviewModel>? reviews;
   List<ProductsModel>? products;
@@ -20,6 +21,8 @@ class PharmacyModel {
     this.id,
     this.phoneNo,
     this.address,
+    this.creationDate,
+    this.categories,
   );
 
   Map<String, dynamic> toMap() => {
@@ -28,6 +31,8 @@ class PharmacyModel {
         'phoneNo': phoneNo,
         'address': address,
         'image': image,
+        'creationDate': creationDate,
+        'categories': categories,
       };
 
   PharmacyModel.fromJson({
@@ -42,5 +47,6 @@ class PharmacyModel {
     address = json['address'];
     image = json['image'];
     id = json['id'];
+    creationDate = json['creationDate'];
   }
 }

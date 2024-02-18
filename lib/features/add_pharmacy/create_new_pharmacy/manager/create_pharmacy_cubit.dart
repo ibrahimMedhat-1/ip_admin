@@ -6,6 +6,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:ip_admin/models/category_model.dart';
 import 'package:ip_admin/models/pharmacy_model.dart';
 import 'package:ip_admin/shared/utils/toasts.dart';
 
@@ -29,7 +30,8 @@ class CreatePharmacyCubit extends Cubit<CreatePharmacyState> {
 
   void registerPharmacy(context) {
     FirebaseAuth.instance
-        .createUserWithEmailAndPassword(email: emailController.text.trim(), password: passwordController.text.trim())
+        .createUserWithEmailAndPassword(
+            email: emailController.text.trim(), password: passwordController.text.trim())
         .then((value) {
       pharmacyId = value.user!.uid;
       FirebaseFirestore.instance
@@ -41,6 +43,8 @@ class CreatePharmacyCubit extends Cubit<CreatePharmacyState> {
             value.user!.uid,
             '',
             '',
+            DateTime.now().toString(),
+            [CategoryModel('', '')],
           ).toMap())
           .then((value) {
         Navigator.pushReplacement(
@@ -73,13 +77,13 @@ class CreatePharmacyCubit extends Cubit<CreatePharmacyState> {
     await FirebaseFirestore.instance
         .collection('pharmacies')
         .doc(pharmacyId)
-        .set(PharmacyModel(
-          nameController.text,
-          imageLink ?? '',
-          pharmacyId,
-          phoneController.text,
-          addressController.text,
-        ).toMap())
+        .set(PharmacyModel(nameController.text, imageLink ?? '', pharmacyId, phoneController.text,
+            addressController.text, DateTime.now().toString(), [
+          CategoryModel(
+            '',
+            '',
+          ),
+        ]).toMap())
         .then((value) {
       Navigator.pop(context);
     });

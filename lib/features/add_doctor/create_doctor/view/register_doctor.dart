@@ -35,7 +35,7 @@ class RegisterDoctor extends StatelessWidget {
                   onPressed: () {
                     cubit.registerDoctor(context);
                   },
-                  child: const Text('Register Pharmacy'),
+                  child: const Text('Register Doctor'),
                 )
               ],
             ),

@@ -7,16 +7,10 @@ class DoctorModel {
   String? bio;
   String? image;
   String? lastMessage;
+  String? creationDate;
 
-  DoctorModel(
-    this.id,
-    this.name,
-    this.phoneNo,
-    this.address,
-    this.speciality,
-    this.bio,
-    this.image,
-  );
+  DoctorModel(this.id, this.name, this.phoneNo, this.address, this.speciality, this.bio, this.image,
+      this.creationDate);
   Map<String, dynamic> toMap() => {
         'id': id,
         'name': name,
@@ -25,6 +19,7 @@ class DoctorModel {
         'speciality': speciality,
         'bio': bio,
         'image': image,
+        'creationDate': creationDate,
       };
   DoctorModel.fromJson(Map<String, dynamic>? json, {this.lastMessage}) {
     id = json!['id'];
@@ -34,5 +29,6 @@ class DoctorModel {
     speciality = json['speciality'];
     bio = json['bio'];
     image = json['image'];
+    creationDate = json['creationDate'];
   }
 }

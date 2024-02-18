@@ -20,7 +20,7 @@ class AddDoctorData extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
-                      cubit.getDoctorImage();
+                      cubit.changeImage(context);
                     },
                     child: const CircleAvatar(
                       radius: 80,
