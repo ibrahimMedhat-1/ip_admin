@@ -60,7 +60,7 @@ class DoctorDetails extends StatelessWidget {
                               );
                             },
                             child: Text(
-                              doctorModel.address!['text'],
+                              doctorModel.address!['text'] ?? '',
                               style: Theme.of(context).textTheme.bodyLarge,
                             ),
                           ),
@@ -69,7 +69,7 @@ class DoctorDetails extends StatelessWidget {
                             style: Theme.of(context).textTheme.titleLarge!.copyWith(),
                           ),
                           Text(
-                            doctorModel.speciality!,
+                            doctorModel.speciality ?? '',
                             style: Theme.of(context).textTheme.bodyLarge,
                           ),
                           Text(
@@ -109,7 +109,7 @@ class DoctorDetails extends StatelessWidget {
                                       blurRadius: 3,
                                     ),
                                   ]),
-                              child: Text(doctorModel.bio!),
+                              child: Text(doctorModel.bio ?? ''),
                             ),
                           ),
                         ],
