@@ -32,7 +32,12 @@ class PharmacyModel {
         'address': address,
         'image': image,
         'creationDate': creationDate,
-        'categories': categories,
+        'categories': [
+          {
+            'title': '',
+            'picture': '',
+          }
+        ],
       };
 
   PharmacyModel.fromJson({

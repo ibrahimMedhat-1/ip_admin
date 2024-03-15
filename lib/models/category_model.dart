@@ -8,4 +8,9 @@ class CategoryModel {
     title = json!['title'];
     picture = json['picture'];
   }
+
+  Map<String, dynamic> toMap() => {
+        'title': title,
+        'picture': picture,
+      };
 }
